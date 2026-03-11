@@ -1,0 +1,2803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enseñanza de la Matemática - Circunferencias y Vectores | Profe Darling Obando</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #00B894;
+            --accent: #FF6B35;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --success: #00B894;
+            --warning: #FDCB6E;
+            --danger: #D63031;
+            --info: #0984E3;
+            --gradient-1: linear-gradient(135deg, #6C5CE7 0%, #A8A4E8 100%);
+            --gradient-2: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            --gradient-3: linear-gradient(135deg, #FF6B35 0%, #FFA07A 100%);
+            --shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+            --shadow-hover: 0 15px 40px rgba(108, 92, 231, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Premium */
+        .header {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: var(--gradient-2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.4);
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 20px 20px;
+        }
+
+        /* Tarjetas de Sección Mejoradas */
+        .section {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease;
+            transition: all 0.3s;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 4px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 1rem;
+            border-radius: 15px;
+        }
+
+        /* Grid Mejorado */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Canvas Container Mejorado */
+        .canvas-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 3px solid white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .canvas-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(108, 92, 231, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        canvas {
+            max-width: 100%;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid white;
+        }
+
+        /* Controles Interactivos Premium */
+        .controls {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .control-group input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .value-display {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-left: 1rem;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Tarjetas de Información Mejoradas */
+        .info-card {
+            background: white;
+            border-left: 6px solid var(--primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.05));
+        }
+
+        .info-card:hover {
+            transform: translateX(5px) translateY(-3px);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
+            border-left-width: 8px;
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formula {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Botones Premium */
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
+        }
+
+        .btn-success {
+            background: var(--gradient-3);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Formulario de Envío */
+        .student-form {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2.5rem;
+            border-radius: 30px;
+            margin: 2rem 0;
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .form-title {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+            transform: scale(1.02);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .radio-option:hover {
+            border-color: var(--primary);
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .question-row {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+        }
+
+        .question-row:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+        }
+
+        .question-row label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .question-row select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .question-row select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--gradient-2);
+            color: white;
+            font-size: 1.5rem;
+            padding: 2rem;
+            width: 100%;
+            margin: 2rem 0;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 184, 148, 0.6);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            border: 4px solid var(--success);
+            margin: 2rem 0;
+            animation: slideInUp 0.5s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 6px solid var(--info);
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin: 0.5rem 0;
+        }
+
+        /* Ejercicios Mejorados */
+        .exercise-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .exercise-box:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+            transform: scale(1.02);
+        }
+
+        .exercise-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .exercise-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+            transform: scale(1.02);
+        }
+
+        .feedback {
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+            font-size: 1.1rem;
+            border-left: 5px solid;
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateX(-20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            border-color: var(--success);
+            color: #155724;
+            display: block;
+            border-left-color: var(--success);
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            border-color: var(--danger);
+            color: #721c24;
+            display: block;
+            border-left-color: var(--danger);
+        }
+
+        /* Tabs Mejorados */
+        .tabs {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1rem;
+            border-radius: 50px;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: var(--dark);
+            flex: 1;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tab.active {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+            transform: scale(1.05);
+        }
+
+        .tab:hover:not(.active) {
+            background: var(--gradient-2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Progress Bar Mejorada */
+        .progress-container {
+            background: #e9ecef;
+            border-radius: 30px;
+            padding: 0.5rem;
+            margin: 2rem 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 30px;
+            background: var(--gradient-1);
+            border-radius: 25px;
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(108, 92, 231, 0.5);
+        }
+
+        /* Quiz Styles Mejorados */
+        .quiz-option {
+            background: white;
+            border: 3px solid #e9ecef;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: #f8f9fa;
+            border-color: var(--primary);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+        }
+
+        .quiz-option.selected {
+            background: #e3f2fd;
+            border-color: var(--primary);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: var(--success);
+        }
+
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: var(--danger);
+        }
+
+        .quiz-option span {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin: 1.5rem 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* PDF Viewer */
+        .pdf-container {
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin: 1.5rem 0;
+            background: white;
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.3);
+        }
+
+        .resource-image {
+            height: 200px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .resource-content {
+            padding: 1.5rem;
+        }
+
+        .resource-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            border-bottom: 2px dotted var(--primary);
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+
+        .badge-primary { 
+            background: var(--gradient-1); 
+            color: white; 
+        }
+        .badge-success { 
+            background: var(--gradient-2); 
+            color: white; 
+        }
+        .badge-warning { 
+            background: var(--gradient-3); 
+            color: white; 
+        }
+        .badge-info { 
+            background: linear-gradient(135deg, #0984E3 0%, #74B9FF 100%); 
+            color: white; 
+        }
+
+        /* Calculator Box */
+        .calculator {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+        }
+
+        .calc-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .calc-input {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .calc-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+            transform: scale(1.02);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            border: 3px solid var(--primary);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Iconos */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            color: white;
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 10px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border-top: 6px solid var(--primary);
+            height: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Mejorado */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-1);
+        }
+
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .footer a:hover {
+            color: white;
+            background: var(--primary);
+            transform: translateY(-2px);
+            display: inline-block;
+        }
+
+        /* Loading Animation */
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid var(--primary);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 3rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 120px 10px 10px;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+            
+            .tab {
+                width: 100%;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .submit-btn {
+                font-size: 1.2rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Mejorado -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🧮</div>
+                <div>
+                    <h1>Enseñanza de la Matemática</h1>
+                    <span>Profesora Darling Obando - Geometría Analítica Interactiva</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#teoria" class="nav-btn">📚 Teoría</a>
+                <a href="#simulador" class="nav-btn">🎮 Simulador</a>
+                <a href="#practica" class="nav-btn">✏️ Práctica +</a>
+                <a href="#quiz" class="nav-btn">📝 Quiz +</a>
+                <a href="#recursos" class="nav-btn">🎥 Recursos</a>
+                <a href="#envio" class="nav-btn">📤 Enviar</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introducción Mejorada -->
+        <section class="section">
+            <h2 class="section-title">🎯 Aprendizaje Activo de Circunferencias y Vectores</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                Bienvenidos a una experiencia única de aprendizaje donde las matemáticas cobran vida. 
+                A través de visualizaciones interactivas y práctica guiada, dominarás los conceptos de 
+                <strong>circunferencias</strong> y <strong>traslaciones vectoriales</strong>.
+            </p>
+            
+            <div class="grid-4">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <div class="stat-label">Lecciones Interactivas</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">30+</span>
+                    <div class="stat-label">Ejercicios Prácticos</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10</span>
+                    <div class="stat-label">Quiz Completos</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Visual y Práctico</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Envío para Estudiantes -->
+        <section id="envio" class="section">
+            <h2 class="section-title">📤 Envío de Respuestas</h2>
+            <p class="section-subtitle">Completa tus datos y respuestas para enviarlas a la profesora Darling</p>
+            
+            <div class="student-form">
+                <div class="form-title">
+                    <span class="icon">📋</span>
+                    Formulario del Estudiante
+                </div>
+                
+                <!-- FORMULARIO CON FORMSUBMIT - CONFIGURADO PARA DARLINGOBANDO9@GMAIL.COM -->
+                <form action="https://formsubmit.co/ucrenator@gmail.com" method="POST" id="studentForm">
+                    <!-- Configuración de FormSubmit -->
+                    <input type="hidden" name="_subject" value="📝 Nuevas Respuestas de Estudiante - Matemáticas">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://profe-darling.github.io/gracias.html">
+                    <input type="hidden" name="_autoresponse" value="¡Gracias por enviar tus respuestas! La profesora Darling las revisará y te dará retroalimentación pronto. Sigue practicando las matemáticas 🧮">
+                    <input type="hidden" name="_cc" value="darlingobando9@gmail.com">
+                    <input type="hidden" name="_honeypot" value="">
+                    
+                    <!-- Datos del Estudiante -->
+                    <div class="form-group">
+                        <label for="nombre">👤 Nombre Completo del Estudiante *</label>
+                        <input type="text" class="form-control" id="nombre" name="Nombre completo" required placeholder="Ej: Ana Pérez García">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="correo">📧 Correo Electrónico del Estudiante *</label>
+                        <input type="email" class="form-control" id="correo" name="Correo del estudiante" required placeholder="Para recibir confirmación">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grupo">📚 Grupo/Sección *</label>
+                        <select class="form-control" id="grupo" name="Grupo" required>
+                            <option value="">Selecciona tu grupo</option>
+                            <option value="10-1">10-1</option>
+                            <option value="10-2">10-2</option>
+                            <option value="10-3">10-3</option>
+                            <option value="10-4">10-4</option>
+                            <option value="10-5">10-5</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Respuestas del Quiz -->
+                    <h3 style="color: var(--primary); margin: 2rem 0 1rem;">📝 Respuestas del Quiz (10 preguntas)</h3>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 1: ¿Cuál es el centro de la circunferencia (x + 3)² + (y - 4)² = 25?</label>
+                        <select name="Pregunta 1 - Centro" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (3,-4)">A) (3,-4)</option>
+                            <option value="B) (-3,4)">B) (-3,4) ✓ Correcta</option>
+                            <option value="C) (3,4)">C) (3,4)</option>
+                            <option value="D) (-3,-4)">D) (-3,-4)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 2: Si trasladas el punto P(2,5) con el vector v⃗ = (-4,3), ¿cuál es el nuevo punto?</label>
+                        <select name="Pregunta 2 - Punto trasladado" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (6,2)">A) (6,2)</option>
+                            <option value="B) (-2,8)">B) (-2,8) ✓ Correcta</option>
+                            <option value="C) (6,8)">C) (6,8)</option>
+                            <option value="D) (-2,2)">D) (-2,2)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 3: ¿Qué representa el valor r² en la ecuación de la circunferencia?</label>
+                        <select name="Pregunta 3 - Significado de r²" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) El diámetro">A) El diámetro</option>
+                            <option value="B) El centro">B) El centro</option>
+                            <option value="C) El cuadrado del radio">C) El cuadrado del radio ✓ Correcta</option>
+                            <option value="D) La circunferencia">D) La circunferencia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 4: Una circunferencia tiene centro C(-2,5) y radio 6. ¿Cuál es su ecuación?</label>
+                        <select name="Pregunta 4 - Ecuación" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (x+2)²+(y-5)²=6">A) (x+2)²+(y-5)²=6</option>
+                            <option value="B) (x+2)²+(y-5)²=36">B) (x+2)²+(y-5)²=36 ✓ Correcta</option>
+                            <option value="C) (x-2)²+(y+5)²=36">C) (x-2)²+(y+5)²=36</option>
+                            <option value="D) (x+2)²+(y+5)²=36">D) (x+2)²+(y+5)²=36</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 5: ¿Qué sucede con el radio cuando se traslada una circunferencia?</label>
+                        <select name="Pregunta 5 - Radio en traslación" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) Aumenta">A) Aumenta</option>
+                            <option value="B) Disminuye">B) Disminuye</option>
+                            <option value="C) Permanece igual">C) Permanece igual ✓ Correcta</option>
+                            <option value="D) Depende del vector">D) Depende del vector</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 6: Si una circunferencia con centro (3,-1) se traslada con vector (2,5), ¿cuál es el nuevo centro?</label>
+                        <select name="Pregunta 6 - Nuevo centro" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (5,4)">A) (5,4) ✓ Correcta</option>
+                            <option value="B) (1,-6)">B) (1,-6)</option>
+                            <option value="C) (5,-4)">C) (5,-4)</option>
+                            <option value="D) (1,4)">D) (1,4)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 7: La ecuación (x-4)²+(y+2)²=16 representa una circunferencia con:</label>
+                        <select name="Pregunta 7 - Identificar elementos" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) Centro (4,2) y radio 4">A) Centro (4,2) y radio 4</option>
+                            <option value="B) Centro (-4,-2) y radio 16">B) Centro (-4,-2) y radio 16</option>
+                            <option value="C) Centro (4,-2) y radio 4">C) Centro (4,-2) y radio 4 ✓ Correcta</option>
+                            <option value="D) Centro (-4,2) y radio 4">D) Centro (-4,2) y radio 4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 8: ¿Cuál es la magnitud del vector v⃗ = (3,-4)?</label>
+                        <select name="Pregunta 8 - Magnitud del vector" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) 1">A) 1</option>
+                            <option value="B) 5">B) 5 ✓ Correcta</option>
+                            <option value="C) 7">C) 7</option>
+                            <option value="D) 12">D) 12</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 9: Una circunferencia con ecuación (x-2)²+(y-3)²=9 se traslada al nuevo centro (5,-1). ¿Cuál fue el vector de traslación?</label>
+                        <select name="Pregunta 9 - Vector de traslación" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (3,-4)">A) (3,-4) ✓ Correcta</option>
+                            <option value="B) (-3,4)">B) (-3,4)</option>
+                            <option value="C) (7,2)">C) (7,2)</option>
+                            <option value="D) (3,4)">D) (3,4)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="question-row">
+                        <label>Pregunta 10: Si trasladas una circunferencia con vector (2,-3) y luego con vector (-1,4), el desplazamiento total es:</label>
+                        <select name="Pregunta 10 - Desplazamiento total" required>
+                            <option value="">Selecciona respuesta</option>
+                            <option value="A) (1,1)">A) (1,1) ✓ Correcta</option>
+                            <option value="B) (3,-7)">B) (3,-7)</option>
+                            <option value="C) (1,-1)">C) (1,-1)</option>
+                            <option value="D) (3,1)">D) (3,1)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Tiempo de estudio -->
+                    <div class="form-group">
+                        <label>⏱️ ¿Cuánto tiempo dedicaste al estudio?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="Tiempo de estudio" value="menos de 30 min" id="t1" required>
+                                <label for="t1">Menos de 30 min</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Tiempo de estudio" value="30-60 min" id="t2">
+                                <label for="t2">30-60 minutos</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Tiempo de estudio" value="1-2 horas" id="t3">
+                                <label for="t3">1-2 horas</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Tiempo de estudio" value="más de 2 horas" id="t4">
+                                <label for="t4">Más de 2 horas</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nivel de dificultad -->
+                    <div class="form-group">
+                        <label>📊 ¿Cómo calificas la dificultad?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="Dificultad" value="Muy fácil" id="d1">
+                                <label for="d1">Muy fácil</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Dificultad" value="Fácil" id="d2">
+                                <label for="d2">Fácil</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Dificultad" value="Adecuada" id="d3">
+                                <label for="d3">Adecuada</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Dificultad" value="Difícil" id="d4">
+                                <label for="d4">Difícil</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="Dificultad" value="Muy difícil" id="d5">
+                                <label for="d5">Muy difícil</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comentarios adicionales -->
+                    <div class="form-group">
+                        <label for="comentarios">💬 Comentarios, dudas o sugerencias (opcional)</label>
+                        <textarea class="form-control" id="comentarios" name="Comentarios" rows="4" placeholder="Escribe aquí cualquier duda, comentario o sugerencia para la profesora..."></textarea>
+                    </div>
+                    
+                    <!-- Botón de envío -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        📤 ENVIAR RESPUESTAS A LA PROFESORA DARLING
+                    </button>
+                    
+                    <div class="info-box">
+                        <p><strong>📌 IMPORTANTE:</strong></p>
+                        <p>✅ Necesitas conexión a internet SOLO para enviar el formulario.</p>
+                        <p>✅ Puedes trabajar sin conexión y enviar al final.</p>
+                        <p>✅ Recibirás una copia de confirmación en tu correo.</p>
+                        <p>✅ La profesora Darling te responderá con retroalimentación.</p>
+                        <p>🔒 Tus datos se envían de forma segura al correo: <strong>darlingobando9@gmail.com</strong></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Teoría -->
+        <section id="teoria" class="section">
+            <h2 class="section-title">📖 Fundamentos Teóricos</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('circunferencia')">⭕ Circunferencia</button>
+                <button class="tab" onclick="showTab('vectores')">➡️ Vectores</button>
+                <button class="tab" onclick="showTab('traslacion')">🔄 Traslación</button>
+                <button class="tab" onclick="showTab('aplicaciones')">🌍 Aplicaciones</button>
+            </div>
+
+            <div id="circunferencia" class="tab-content active">
+                <div class="grid-2">
+                    <div>
+                        <div class="info-card">
+                            <h3><span class="icon">⭕</span>Ecuación Ordinaria</h3>
+                            <p>La circunferencia es el conjunto de puntos que equidistan de un punto fijo llamado <strong>centro</strong>.</p>
+                            <div class="formula">(x - h)² + (y - k)² = r²</div>
+                            <ul style="margin-left: 1.5rem; line-height: 2.2; font-size: 1.1rem;">
+                                <li><span class="badge badge-primary">h, k</span> Coordenadas del centro</li>
+                                <li><span class="badge badge-success">r</span> Radio (distancia constante)</li>
+                                <li><span class="badge badge-info">x, y</span> Puntos de la circunferencia</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card" style="margin-top: 1.5rem; border-left-color: var(--secondary);">
+                            <h3><span class="icon">🎯</span>Interpretación Geométrica</h3>
+                            <p>Para identificar los elementos de la ecuación:</p>
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+                                <p><strong>Ejemplo:</strong> (x - 3)² + (y + 2)² = 16</p>
+                                <p>→ Centro: (3, -2) <span class="tooltip">❓<span class="tooltiptext">El signo dentro del paréntesis se invierte</span></span></p>
+                                <p>→ Radio: √16 = 4</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="canvas-container">
+                        <canvas id="canvasCircunferencia" width="500" height="400"></canvas>
+                        <div class="controls">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Manipula la circunferencia:</h4>
+                            <div class="control-group">
+                                <label>Centro X (h): <span class="value-display" id="valH">3</span></label>
+                                <input type="range" id="inputH" min="-10" max="10" value="3" oninput="updateCircunferencia()">
+                            </div>
+                            <div class="control-group">
+                                <label>Centro Y (k): <span class="value-display" id="valK">-2</span></label>
+                                <input type="range" id="inputK" min="-10" max="10" value="-2" oninput="updateCircunferencia()">
+                            </div>
+                            <div class="control-group">
+                                <label>Radio (r): <span class="value-display" id="valR">4</span></label>
+                                <input type="range" id="inputR" min="1" max="10" value="4" oninput="updateCircunferencia()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vectores" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <div class="info-card">
+                            <h3><span class="icon">➡️</span>Vectores de Traslación</h3>
+                            <p>Un vector <strong>v⃗ = (a, b)</strong> representa un desplazamiento en el plano:</p>
+                            <div class="formula">P(x, y) → P'(x + a, y + b)</div>
+                            <ul style="margin-left: 1.5rem; line-height: 2.2; font-size: 1.1rem;">
+                                <li><span class="badge badge-primary">a</span> Desplazamiento horizontal</li>
+                                <li><span class="badge badge-success">b</span> Desplazamiento vertical</li>
+                                <li><span class="badge badge-info">|v| = √(a² + b²)</span> Magnitud</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card" style="margin-top: 1.5rem; border-left-color: var(--accent);">
+                            <h3><span class="icon">📊</span>Propiedades de los Vectores</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                                    <strong>Dirección</strong>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Ángulo con el eje X</p>
+                                </div>
+                                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                                    <strong>Magnitud</strong>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Longitud del vector</p>
+                                </div>
+                                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                                    <strong>Sentido</strong>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Hacia dónde apunta</p>
+                                </div>
+                                <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
+                                    <strong>Componentes</strong>
+                                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">(a, b)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="canvas-container">
+                        <canvas id="canvasVector" width="500" height="400"></canvas>
+                        <div class="controls">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Manipula el vector:</h4>
+                            <div class="control-group">
+                                <label>Componente X (a): <span class="value-display" id="valA">4</span></label>
+                                <input type="range" id="inputA" min="-10" max="10" value="4" oninput="updateVector()">
+                            </div>
+                            <div class="control-group">
+                                <label>Componente Y (b): <span class="value-display" id="valB">-3</span></label>
+                                <input type="range" id="inputB" min="-10" max="10" value="-3" oninput="updateVector()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="traslacion" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <div class="info-card">
+                            <h3><span class="icon">🔄</span>Traslación de Circunferencias</h3>
+                            <p>Al aplicar un vector <strong>v⃗ = (a, b)</strong> a una circunferencia:</p>
+                            <div class="formula">C'(h + a, k + b)</div>
+                            <p style="margin-top: 1rem;">Características importantes:</p>
+                            <ul style="margin-left: 1.5rem; line-height: 2;">
+                                <li>✅ El <strong>radio</strong> permanece constante</li>
+                                <li>✅ La <strong>forma</strong> no cambia</li>
+                                <li>✅ Solo cambia la <strong>posición</strong></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="formula" style="margin-top: 1rem; background: var(--gradient-3);">
+                            (x - (h+a))² + (y - (k+b))² = r²
+                        </div>
+                        
+                        <div class="info-card" style="margin-top: 1rem;">
+                            <h4>Ejemplo paso a paso:</h4>
+                            <p>Circunferencia original: (x - 2)² + (y - 1)² = 9</p>
+                            <p>Vector: v⃗ = (4, -2)</p>
+                            <p>Nuevo centro: (2+4, 1-2) = (6, -1)</p>
+                            <p>Nueva ecuación: (x - 6)² + (y + 1)² = 9</p>
+                        </div>
+                    </div>
+                    
+                    <div class="canvas-container">
+                        <canvas id="canvasTraslacion" width="500" height="400"></canvas>
+                        <div class="controls">
+                            <h4 style="margin-bottom: 1rem; color: var(--primary);">Traslada la circunferencia:</h4>
+                            <p style="margin-bottom: 1rem;">Circunferencia original: C(2, 1), r = 3</p>
+                            <div class="control-group">
+                                <label>Vector X: <span class="value-display" id="valTA">4</span></label>
+                                <input type="range" id="inputTA" min="-8" max="8" value="4" oninput="updateTraslacion()">
+                            </div>
+                            <div class="control-group">
+                                <label>Vector Y: <span class="value-display" id="valTB">-2</span></label>
+                                <input type="range" id="inputTB" min="-8" max="8" value="-2" oninput="updateTraslacion()">
+                            </div>
+                            <button class="btn btn-secondary" onclick="resetTraslacion()">🔄 Reiniciar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aplicaciones" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <div class="info-card">
+                            <h3><span class="icon">🌍</span>Aplicaciones en la Vida Real</h3>
+                            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 2rem;">🚗</span>
+                                    <div>
+                                        <strong>Navegación GPS</strong>
+                                        <p>Los vectores determinan rutas y desplazamientos</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 2rem;">🎮</span>
+                                    <div>
+                                        <strong>Gráficos por Computadora</strong>
+                                        <p>Traslación de objetos en videojuegos</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 2rem;">🏗️</span>
+                                    <div>
+                                        <strong>Arquitectura</strong>
+                                        <p>Diseño de arcos y estructuras circulares</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 2rem;">🛰️</span>
+                                    <div>
+                                        <strong>Astronomía</strong>
+                                        <p>Órbitas planetarias y trayectorias</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="info-card">
+                            <h3><span class="icon">📐</span>Problema Contextualizado</h3>
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 15px;">
+                                <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+                                    <strong>Una rueda de la fortuna</strong> tiene centro en (0, 10) metros y radio 8 metros. 
+                                    Si se traslada 5 metros a la derecha y 3 metros hacia arriba:
+                                </p>
+                                <div style="margin-top: 1rem;">
+                                    <p>1. ¿Cuál es el nuevo centro?</p>
+                                    <p>2. ¿Cambia el radio?</p>
+                                    <p>3. ¿Cuál es la nueva ecuación?</p>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="showSolution()">Ver Solución</button>
+                                <div id="solution" style="display: none; margin-top: 1rem; padding: 1rem; background: #d4edda; border-radius: 10px;">
+                                    <p><strong>Solución:</strong></p>
+                                    <p>1. Nuevo centro: (5, 13)</p>
+                                    <p>2. El radio no cambia: r = 8</p>
+                                    <p>3. Ecuación: (x - 5)² + (y - 13)² = 64</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulador Interactivo Mejorado -->
+        <section id="simulador" class="section">
+            <h2 class="section-title">🎮 Simulador Avanzado de Traslaciones</h2>
+            <p class="section-subtitle">Experimenta en tiempo real y visualiza cómo se transforman las circunferencias</p>
+            
+            <div class="calculator">
+                <h3 style="margin-bottom: 2rem; color: var(--primary); font-size: 1.8rem;">📐 Calculadora Geométrica Interactiva</h3>
+                
+                <div class="calc-row">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Centro X (h):</label>
+                        <input type="number" class="calc-input" id="calcH" placeholder="X" value="2" step="0.5">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Centro Y (k):</label>
+                        <input type="number" class="calc-input" id="calcK" placeholder="Y" value="3" step="0.5">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Radio (r):</label>
+                        <input type="number" class="calc-input" id="calcR" placeholder="Radio" value="4" min="0.5" step="0.5">
+                    </div>
+                </div>
+                
+                <div class="calc-row">
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Vector X (a):</label>
+                        <input type="number" class="calc-input" id="calcA" placeholder="Desplazamiento X" value="5" step="0.5">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Vector Y (b):</label>
+                        <input type="number" class="calc-input" id="calcB" placeholder="Desplazamiento Y" value="-2" step="0.5">
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="calculateTranslation()">🚀 Calcular Traslación</button>
+                    <button class="btn btn-secondary" onclick="resetCalculator()">🔄 Reiniciar Valores</button>
+                </div>
+                
+                <div class="calc-result" id="calcResult" style="display: none;">
+                    <h4 style="color: var(--primary); margin-bottom: 1.5rem;">Resultado de la Traslación:</h4>
+                    <div id="resultContent" style="font-size: 1.3rem;"></div>
+                </div>
+                
+                <div class="canvas-container" style="margin-top: 2rem;">
+                    <canvas id="canvasCalculator" width="600" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Práctica Guiada (Doble) -->
+        <section id="practica" class="section">
+            <h2 class="section-title">✏️ Práctica Guiada Intensiva</h2>
+            <p class="section-subtitle">8 ejercicios progresivos para dominar completamente el tema</p>
+            
+            <div class="grid-2">
+                <!-- Ejercicios Nivel 1-4 -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">📘 Nivel Básico</h3>
+                    
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-primary">Ejercicio 1</span> Identificación de Elementos</h4>
+                        <p>Dada la ecuación: <strong>(x - 5)² + (y + 3)² = 36</strong></p>
+                        
+                        <div class="calc-row">
+                            <div style="flex: 1;">
+                                <label>Centro (h, k):</label>
+                                <input type="text" class="exercise-input" id="ex1Center" placeholder="Ej: (3, -2)">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Radio (r):</label>
+                                <input type="number" class="exercise-input" id="ex1Radius" placeholder="Ej: 6">
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="checkExercise1()">✓ Verificar</button>
+                        <div id="feedback1" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-primary">Ejercicio 2</span> Centro a partir de ecuación</h4>
+                        <p>Encuentra el centro de: <strong>(x + 4)² + (y - 7)² = 25</strong></p>
+                        
+                        <input type="text" class="exercise-input" id="ex2Center" placeholder="Ej: (-4, 7)">
+                        
+                        <button class="btn btn-primary" onclick="checkExercise2()">✓ Verificar</button>
+                        <div id="feedback2" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-primary">Ejercicio 3</span> Radio a partir de ecuación</h4>
+                        <p>¿Cuál es el radio de: <strong>(x - 2)² + (y + 1)² = 49</strong>?</p>
+                        
+                        <input type="number" class="exercise-input" id="ex3Radius" placeholder="Radio">
+                        
+                        <button class="btn btn-primary" onclick="checkExercise3()">✓ Verificar</button>
+                        <div id="feedback3" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-primary">Ejercicio 4</span> Escribir ecuación</h4>
+                        <p>Escribe la ecuación con centro (3, -5) y radio 4</p>
+                        
+                        <input type="text" class="exercise-input" id="ex4Equation" placeholder="Ej: (x-3)²+(y+5)²=16">
+                        
+                        <button class="btn btn-primary" onclick="checkExercise4()">✓ Verificar</button>
+                        <div id="feedback4" class="feedback"></div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios Nivel 5-8 -->
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">📙 Nivel Avanzado</h3>
+                    
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-success">Ejercicio 5</span> Traslación Básica</h4>
+                        <p>Circunferencia: <strong>(x - 3)² + (y - 2)² = 9</strong><br>
+                        Vector: <strong>v⃗ = (4, -5)</strong></p>
+                        
+                        <input type="text" class="exercise-input" id="ex5Equation" placeholder="Nueva ecuación">
+                        
+                        <button class="btn btn-secondary" onclick="checkExercise5()">✓ Verificar</button>
+                        <div id="feedback5" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-success">Ejercicio 6</span> Encontrar el vector</h4>
+                        <p>Si una circunferencia con centro (1, 4) se traslada a (7, -2), ¿cuál fue el vector?</p>
+                        
+                        <input type="text" class="exercise-input" id="ex6Vector" placeholder="Ej: (6, -6)">
+                        
+                        <button class="btn btn-secondary" onclick="checkExercise6()">✓ Verificar</button>
+                        <div id="feedback6" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-warning">Ejercicio 7</span> Problema de aplicación</h4>
+                        <p>Un jardinero diseña un jardín circular con centro en (2, 5) y radio 3m. 
+                        Decide moverlo 4m al este y 2m al sur. ¿Cuál es la nueva ecuación?</p>
+                        
+                        <input type="text" class="exercise-input" id="ex7Equation" placeholder="Nueva ecuación">
+                        
+                        <button class="btn btn-warning" onclick="checkExercise7()">✓ Verificar</button>
+                        <div id="feedback7" class="feedback"></div>
+                    </div>
+
+                    <div class="exercise-box">
+                        <h4><span class="badge badge-info">Ejercicio 8</span> Desafío final</h4>
+                        <p>Una circunferencia con ecuación (x - 1)² + (y + 3)² = 25 se traslada con v⃗ = (3, 4). 
+                        Luego, se traslada nuevamente con w⃗ = (-2, 1). ¿Cuál es el centro final?</p>
+                        
+                        <input type="text" class="exercise-input" id="ex8Center" placeholder="Centro final">
+                        
+                        <button class="btn btn-info" onclick="checkExercise8()">✓ Verificar</button>
+                        <div id="feedback8" class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Interactivo (Doble) -->
+        <section id="quiz" class="section">
+            <h2 class="section-title">📝 Evaluación Interactiva Completa</h2>
+            <p class="section-subtitle">10 preguntas para evaluar tu comprensión</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="quizProgress">0%</div>
+            </div>
+            
+            <div id="quizContainer">
+                <!-- Preguntas 1-10 -->
+                <div class="quiz-question" data-question="1">
+                    <h3>Pregunta 1 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        ¿Cuál es el centro de la circunferencia <strong>(x + 3)² + (y - 4)² = 25</strong>?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(1, 'A', false)">
+                        <span>A</span> (3, -4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(1, 'B', true)">
+                        <span>B</span> (-3, 4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(1, 'C', false)">
+                        <span>C</span> (3, 4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(1, 'D', false)">
+                        <span>D</span> (-3, -4)
+                    </div>
+                    <div id="feedback-quiz-1" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="2" style="display: none;">
+                    <h3>Pregunta 2 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        Si trasladas el punto P(2, 5) con el vector <strong>v⃗ = (-4, 3)</strong>, 
+                        ¿cuál es el nuevo punto?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(2, 'A', false)">
+                        <span>A</span> (6, 2)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(2, 'B', true)">
+                        <span>B</span> (-2, 8)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(2, 'C', false)">
+                        <span>C</span> (6, 8)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(2, 'D', false)">
+                        <span>D</span> (-2, 2)
+                    </div>
+                    <div id="feedback-quiz-2" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="3" style="display: none;">
+                    <h3>Pregunta 3 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        ¿Qué representa el valor <strong>r²</strong> en la ecuación de la circunferencia?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(3, 'A', false)">
+                        <span>A</span> El diámetro
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(3, 'B', false)">
+                        <span>B</span> El centro
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(3, 'C', true)">
+                        <span>C</span> El cuadrado del radio
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(3, 'D', false)">
+                        <span>D</span> La circunferencia
+                    </div>
+                    <div id="feedback-quiz-3" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="4" style="display: none;">
+                    <h3>Pregunta 4 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        Una circunferencia tiene centro C(-2, 5) y radio 6. ¿Cuál es su ecuación?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(4, 'A', false)">
+                        <span>A</span> (x + 2)² + (y - 5)² = 6
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(4, 'B', true)">
+                        <span>B</span> (x + 2)² + (y - 5)² = 36
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(4, 'C', false)">
+                        <span>C</span> (x - 2)² + (y + 5)² = 36
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(4, 'D', false)">
+                        <span>D</span> (x + 2)² + (y + 5)² = 36
+                    </div>
+                    <div id="feedback-quiz-4" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="5" style="display: none;">
+                    <h3>Pregunta 5 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        ¿Qué sucede con el radio cuando se traslada una circunferencia?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(5, 'A', false)">
+                        <span>A</span> Aumenta
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(5, 'B', false)">
+                        <span>B</span> Disminuye
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(5, 'C', true)">
+                        <span>C</span> Permanece igual
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(5, 'D', false)">
+                        <span>D</span> Depende del vector
+                    </div>
+                    <div id="feedback-quiz-5" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="6" style="display: none;">
+                    <h3>Pregunta 6 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        Si una circunferencia con centro (3, -1) se traslada con vector (2, 5), 
+                        ¿cuál es el nuevo centro?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(6, 'A', true)">
+                        <span>A</span> (5, 4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(6, 'B', false)">
+                        <span>B</span> (1, -6)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(6, 'C', false)">
+                        <span>C</span> (5, -4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(6, 'D', false)">
+                        <span>D</span> (1, 4)
+                    </div>
+                    <div id="feedback-quiz-6" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="7" style="display: none;">
+                    <h3>Pregunta 7 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        La ecuación <strong>(x - 4)² + (y + 2)² = 16</strong> representa una circunferencia con:
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(7, 'A', false)">
+                        <span>A</span> Centro (4, 2) y radio 4
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(7, 'B', false)">
+                        <span>B</span> Centro (-4, -2) y radio 16
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(7, 'C', true)">
+                        <span>C</span> Centro (4, -2) y radio 4
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(7, 'D', false)">
+                        <span>D</span> Centro (-4, 2) y radio 4
+                    </div>
+                    <div id="feedback-quiz-7" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="8" style="display: none;">
+                    <h3>Pregunta 8 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        ¿Cuál es la magnitud del vector <strong>v⃗ = (3, -4)</strong>?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(8, 'A', false)">
+                        <span>A</span> 1
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(8, 'B', true)">
+                        <span>B</span> 5
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(8, 'C', false)">
+                        <span>C</span> 7
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(8, 'D', false)">
+                        <span>D</span> 12
+                    </div>
+                    <div id="feedback-quiz-8" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="9" style="display: none;">
+                    <h3>Pregunta 9 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        Una circunferencia con ecuación (x - 2)² + (y - 3)² = 9 se traslada al nuevo centro (5, -1). 
+                        ¿Cuál fue el vector de traslación?
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(9, 'A', true)">
+                        <span>A</span> (3, -4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(9, 'B', false)">
+                        <span>B</span> (-3, 4)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(9, 'C', false)">
+                        <span>C</span> (7, 2)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(9, 'D', false)">
+                        <span>D</span> (3, 4)
+                    </div>
+                    <div id="feedback-quiz-9" class="feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-question="10" style="display: none;">
+                    <h3>Pregunta 10 de 10</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        Si trasladas una circunferencia con vector (2, -3) y luego con vector (-1, 4), 
+                        el desplazamiento total es:
+                    </p>
+                    <div class="quiz-option" onclick="selectOption(10, 'A', true)">
+                        <span>A</span> (1, 1)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(10, 'B', false)">
+                        <span>B</span> (3, -7)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(10, 'C', false)">
+                        <span>C</span> (1, -1)
+                    </div>
+                    <div class="quiz-option" onclick="selectOption(10, 'D', false)">
+                        <span>D</span> (3, 1)
+                    </div>
+                    <div id="feedback-quiz-10" class="feedback"></div>
+                </div>
+
+                <div id="quizResults" style="display: none; text-align: center; padding: 3rem;">
+                    <h2 style="color: var(--primary); margin-bottom: 1.5rem;">🎉 ¡Quiz Completado!</h2>
+                    <div style="font-size: 4rem; margin: 1.5rem 0;" id="quizScore"></div>
+                    <p id="quizMessage" style="font-size: 1.4rem; margin-bottom: 2rem;"></p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button class="btn btn-primary" onclick="resetQuiz()">🔄 Intentar de Nuevo</button>
+                        <button class="btn btn-secondary" onclick="reviewMistakes()">📚 Revisar Errores</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Adicionales -->
+        <section id="recursos" class="section">
+            <h2 class="section-title">📚 Recursos para el Aprendizaje</h2>
+            
+            <div class="grid-3">
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <span>🎥</span>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Video Tutorial</h3>
+                        <p>Aprende visualmente con explicaciones detalladas paso a paso</p>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/NC225Rgya94" 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="window.open('https://www.youtube.com/watch?v=NC225Rgya94')">
+                            Ver en YouTube
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <span>📄</span>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Guía de Estudio</h3>
+                        <p>Material completo con teoría, ejemplos y ejercicios adicionales</p>
+                        <div class="pdf-container">
+                            <iframe src="https://coned.ac.cr/images/Antologias/Academicas/10/MATEMATICA%2010MO.pdf" 
+                                    title="PDF Viewer">
+                            </iframe>
+                        </div>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="window.open('https://coned.ac.cr/images/Antologias/Academicas/10/MATEMATICA%2010MO.pdf')">
+                            Descargar PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <span>📱</span>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Contacto y Apoyo</h3>
+                        <p>¿Tienes dudas? La profesora está aquí para ayudarte</p>
+                        <div style="background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); padding: 1.5rem; border-radius: 10px; margin-top: 1rem;">
+                            <p style="margin-bottom: 1rem;"><strong>👩‍🏫 Profesora Darling Obando</strong></p>
+                            <p>📧 darling.obando9@gmail.com</p>
+                            <p>📱 WhatsApp: +506 8888-8888</p>
+                            <p>🕒 Horario: L-V 8am-5pm</p>
+                        </div>
+                        <button class="btn btn-success" style="width: 100%; margin-top: 1rem;" onclick="window.location.href='mailto:darling.obando9@gmail.com'">
+                            📧 Enviar Mensaje
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Motivación -->
+        <section class="section" style="background: var(--gradient-1); color: white;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="color: white; margin-bottom: 1.5rem;">🌟 La Enseñanza de la Matemática</h2>
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem;">
+                    "Las matemáticas no son solo números y fórmulas, son un lenguaje que nos permite entender 
+                    y transformar el mundo que nos rodea."
+                </p>
+                <div style="display: flex; gap: 2rem; justify-content: center;">
+                    <div>
+                        <span style="font-size: 2.5rem;">🧮</span>
+                        <p>Comprensión</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 2.5rem;">🎯</span>
+                        <p>Precisión</p>
+                    </div>
+                    <div>
+                        <span style="font-size: 2.5rem;">🚀</span>
+                        <p>Aplicación</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Mejorado -->
+    <footer class="footer">
+        <p>&copy; 2026 Enseñanza de la Matemática - Profesora Darling Obando</p>
+        <p style="margin: 1rem 0;">Décimo Año - Geometría Analítica Interactiva</p>
+        <p style="margin-top: 1.5rem;">
+            <a href="#teoria">📚 Teoría</a> | 
+            <a href="#practica">✏️ Práctica</a> | 
+            <a href="#quiz">📝 Quiz</a> | 
+            <a href="#recursos">🎥 Recursos</a> |
+            <a href="#envio">📤 Enviar</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #aaa;">
+            "La educación no cambia el mundo, cambia a las personas que van a cambiar el mundo"
+        </p>
+    </footer>
+
+    <script>
+        // Variables globales
+        let quizScore = 0;
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+        let userAnswers = [];
+
+        // Inicialización
+        window.onload = function() {
+            initCircunferencia();
+            initVector();
+            initTraslacion();
+            initCalculator();
+            
+            // Verificar si hay mensaje de éxito por envío
+            if(window.location.hash === '#success') {
+                alert('¡Respuestas enviadas con éxito! La profesora Darling recibió tus respuestas.');
+            }
+        };
+
+        // Tabs
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Canvas Circunferencia
+        function initCircunferencia() {
+            updateCircunferencia();
+        }
+
+        function updateCircunferencia() {
+            const h = parseInt(document.getElementById('inputH').value);
+            const k = parseInt(document.getElementById('inputK').value);
+            const r = parseInt(document.getElementById('inputR').value);
+            
+            document.getElementById('valH').textContent = h;
+            document.getElementById('valK').textContent = k;
+            document.getElementById('valR').textContent = r;
+            
+            const canvas = document.getElementById('canvasCircunferencia');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const scale = 20;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid(ctx, canvas.width, canvas.height, scale, centerX, centerY);
+            drawAxes(ctx, canvas.width, canvas.height, centerX, centerY);
+            
+            // Dibujar circunferencia
+            ctx.beginPath();
+            ctx.arc(centerX + h * scale, centerY - k * scale, r * scale, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#6C5CE7';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = 'rgba(108, 92, 231, 0.1)';
+            ctx.fill();
+            
+            // Dibujar centro
+            ctx.beginPath();
+            ctx.arc(centerX + h * scale, centerY - k * scale, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = '#FF6B35';
+            ctx.fill();
+            
+            // Etiquetas
+            ctx.fillStyle = '#6C5CE7';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText(`C(${h}, ${k})`, centerX + h * scale + 10, centerY - k * scale - 10);
+            
+            ctx.fillStyle = '#00B894';
+            ctx.font = '16px Arial';
+            ctx.fillText(`(x ${h >= 0 ? '-' : '+'} ${Math.abs(h)})² + (y ${k >= 0 ? '-' : '+'} ${Math.abs(k)})² = ${r}²`, 10, 30);
+        }
+
+        // Canvas Vector
+        function initVector() {
+            updateVector();
+        }
+
+        function updateVector() {
+            const a = parseInt(document.getElementById('inputA').value);
+            const b = parseInt(document.getElementById('inputB').value);
+            
+            document.getElementById('valA').textContent = a;
+            document.getElementById('valB').textContent = b;
+            
+            const canvas = document.getElementById('canvasVector');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const scale = 25;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid(ctx, canvas.width, canvas.height, scale, centerX, centerY);
+            drawAxes(ctx, canvas.width, canvas.height, centerX, centerY);
+            
+            // Punto original
+            const startX = centerX;
+            const startY = centerY;
+            
+            // Punto final
+            const endX = centerX + a * scale;
+            const endY = centerY - b * scale;
+            
+            // Dibujar vector
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.strokeStyle = '#00B894';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            
+            // Flecha
+            drawArrow(ctx, endX, endY, a, b, scale);
+            
+            // Puntos
+            ctx.beginPath();
+            ctx.arc(startX, startY, 6, 0, 2 * Math.PI);
+            ctx.fillStyle = '#6C5CE7';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(endX, endY, 6, 0, 2 * Math.PI);
+            ctx.fillStyle = '#FF6B35';
+            ctx.fill();
+            
+            // Etiquetas
+            ctx.fillStyle = '#6C5CE7';
+            ctx.font = 'bold 14px Arial';
+            ctx.fillText('P(0, 0)', startX + 10, startY - 10);
+            
+            ctx.fillStyle = '#FF6B35';
+            ctx.fillText(`P'(${a}, ${b})`, endX + 10, endY - 10);
+        }
+
+        // Canvas Traslación
+        function initTraslacion() {
+            updateTraslacion();
+        }
+
+        function updateTraslacion() {
+            const a = parseInt(document.getElementById('inputTA').value);
+            const b = parseInt(document.getElementById('inputTB').value);
+            
+            document.getElementById('valTA').textContent = a;
+            document.getElementById('valTB').textContent = b;
+            
+            const canvas = document.getElementById('canvasTraslacion');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const scale = 25;
+            
+            const h = 2;
+            const k = 1;
+            const r = 3;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid(ctx, canvas.width, canvas.height, scale, centerX, centerY);
+            drawAxes(ctx, canvas.width, canvas.height, centerX, centerY);
+            
+            // Circunferencia original
+            ctx.beginPath();
+            ctx.arc(centerX + h * scale, centerY - k * scale, r * scale, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#6C5CE7';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = 'rgba(108, 92, 231, 0.1)';
+            ctx.fill();
+            
+            // Nuevo centro
+            const newH = h + a;
+            const newK = k + b;
+            
+            // Circunferencia trasladada
+            ctx.beginPath();
+            ctx.arc(centerX + newH * scale, centerY - newK * scale, r * scale, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#00B894';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = 'rgba(0, 184, 148, 0.2)';
+            ctx.fill();
+            
+            // Vector de traslación
+            ctx.beginPath();
+            ctx.moveTo(centerX + h * scale, centerY - k * scale);
+            ctx.lineTo(centerX + newH * scale, centerY - newK * scale);
+            ctx.strokeStyle = '#FF6B35';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            drawArrow(ctx, centerX + newH * scale, centerY - newK * scale, a, b, scale);
+            
+            // Centros
+            ctx.beginPath();
+            ctx.arc(centerX + h * scale, centerY - k * scale, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = '#6C5CE7';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(centerX + newH * scale, centerY - newK * scale, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = '#00B894';
+            ctx.fill();
+            
+            // Etiquetas
+            ctx.fillStyle = '#6C5CE7';
+            ctx.font = 'bold 12px Arial';
+            ctx.fillText(`C(${h},${k})`, centerX + h * scale + 8, centerY - k * scale - 8);
+            
+            ctx.fillStyle = '#00B894';
+            ctx.fillText(`C'(${newH},${newK})`, centerX + newH * scale + 8, centerY - newK * scale - 8);
+        }
+
+        function resetTraslacion() {
+            document.getElementById('inputTA').value = 4;
+            document.getElementById('inputTB').value = -2;
+            updateTraslacion();
+        }
+
+        // Funciones auxiliares de dibujo
+        function drawGrid(ctx, width, height, scale, centerX, centerY) {
+            ctx.strokeStyle = '#e0e0e0';
+            ctx.lineWidth = 1;
+            
+            for (let x = centerX % scale; x < width; x += scale) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            
+            for (let y = centerY % scale; y < height; y += scale) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+        }
+
+        function drawAxes(ctx, width, height, centerX, centerY) {
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            
+            ctx.beginPath();
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height);
+            ctx.stroke();
+            
+            // Flechas
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.moveTo(width - 10, centerY - 5);
+            ctx.lineTo(width, centerY);
+            ctx.lineTo(width - 10, centerY + 5);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX - 5, 10);
+            ctx.lineTo(centerX, 0);
+            ctx.lineTo(centerX + 5, 10);
+            ctx.fill();
+        }
+
+        function drawArrow(ctx, x, y, a, b, scale) {
+            const angle = Math.atan2(-b, a);
+            const arrowLength = 10;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x - arrowLength * Math.cos(angle - Math.PI / 6), y - arrowLength * Math.sin(angle - Math.PI / 6));
+            ctx.moveTo(x, y);
+            ctx.lineTo(x - arrowLength * Math.cos(angle + Math.PI / 6), y - arrowLength * Math.sin(angle + Math.PI / 6));
+            ctx.strokeStyle = ctx.strokeStyle || '#FF6B35';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
+
+        // Calculadora
+        function initCalculator() {
+            calculateTranslation();
+        }
+
+        function calculateTranslation() {
+            const h = parseFloat(document.getElementById('calcH').value) || 0;
+            const k = parseFloat(document.getElementById('calcK').value) || 0;
+            const r = parseFloat(document.getElementById('calcR').value) || 4;
+            const a = parseFloat(document.getElementById('calcA').value) || 0;
+            const b = parseFloat(document.getElementById('calcB').value) || 0;
+            
+            const newH = h + a;
+            const newK = k + b;
+            
+            const resultDiv = document.getElementById('calcResult');
+            const resultContent = document.getElementById('resultContent');
+            
+            resultDiv.style.display = 'block';
+            resultContent.innerHTML = `
+                <div style="margin-bottom: 1.5rem;">
+                    <strong style="color: #6C5CE7;">Centro Original:</strong> C(${h}, ${k})<br>
+                    <strong style="color: #6C5CE7;">Vector:</strong> v⃗ = (${a}, ${b})
+                </div>
+                <div style="background: linear-gradient(135deg, #6C5CE7 0%, #00B894 100%); color: white; padding: 1.5rem; border-radius: 15px; margin: 1rem 0;">
+                    <strong>Nuevo Centro:</strong> C'(${newH}, ${newK})<br>
+                    <strong>Radio:</strong> r = ${r} (permanece constante)<br><br>
+                    <strong>Nueva Ecuación:</strong><br>
+                    (x ${newH >= 0 ? '-' : '+'} ${Math.abs(newH)})² + (y ${newK >= 0 ? '-' : '+'} ${Math.abs(newK)})² = ${r}²
+                </div>
+            `;
+            
+            // Dibujar en canvas
+            const canvas = document.getElementById('canvasCalculator');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const scale = 25;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid(ctx, canvas.width, canvas.height, scale, centerX, centerY);
+            drawAxes(ctx, canvas.width, canvas.height, centerX, centerY);
+            
+            // Circunferencia original
+            ctx.beginPath();
+            ctx.arc(centerX + h * scale, centerY - k * scale, r * scale, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#6C5CE7';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = 'rgba(108, 92, 231, 0.1)';
+            ctx.fill();
+            
+            // Circunferencia trasladada
+            ctx.beginPath();
+            ctx.arc(centerX + newH * scale, centerY - newK * scale, r * scale, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#00B894';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = 'rgba(0, 184, 148, 0.2)';
+            ctx.fill();
+            
+            // Vector
+            ctx.beginPath();
+            ctx.moveTo(centerX + h * scale, centerY - k * scale);
+            ctx.lineTo(centerX + newH * scale, centerY - newK * scale);
+            ctx.strokeStyle = '#FF6B35';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            drawArrow(ctx, centerX + newH * scale, centerY - newK * scale, a, b, scale);
+        }
+
+        function resetCalculator() {
+            document.getElementById('calcH').value = 2;
+            document.getElementById('calcK').value = 3;
+            document.getElementById('calcR').value = 4;
+            document.getElementById('calcA').value = 5;
+            document.getElementById('calcB').value = -2;
+            calculateTranslation();
+        }
+
+        function showSolution() {
+            const solution = document.getElementById('solution');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Ejercicios
+        function checkExercise1() {
+            const centerInput = document.getElementById('ex1Center').value.trim().toLowerCase();
+            const radiusInput = document.getElementById('ex1Radius').value.trim();
+            const feedback = document.getElementById('feedback1');
+            
+            const validCenters = ['(5, -3)', '(5,-3)'];
+            const validRadius = '6';
+            
+            const centerCorrect = validCenters.includes(centerInput);
+            const radiusCorrect = radiusInput === validRadius;
+            
+            if (centerCorrect && radiusCorrect) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Excelente! Centro (5, -3) y radio 6';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ Revisa: El centro se obtiene invirtiendo los signos. (x-5) → h=5, (y+3) → k=-3. El radio es √36 = 6';
+            }
+        }
+
+        function checkExercise2() {
+            const centerInput = document.getElementById('ex2Center').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback2');
+            
+            const validCenters = ['(-4, 7)', '(-4,7)'];
+            
+            if (validCenters.includes(centerInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Correcto! Centro (-4, 7)';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ Recuerda: (x+4) → h=-4, (y-7) → k=7';
+            }
+        }
+
+        function checkExercise3() {
+            const radiusInput = document.getElementById('ex3Radius').value.trim();
+            const feedback = document.getElementById('feedback3');
+            
+            if (radiusInput === '7') {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Correcto! Radio = √49 = 7';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ El radio es √49 = 7';
+            }
+        }
+
+        function checkExercise4() {
+            const equationInput = document.getElementById('ex4Equation').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback4');
+            
+            const validEquations = [
+                '(x-3)²+(y+5)²=16',
+                '(x - 3)² + (y + 5)² = 16',
+                '(x-3)^2+(y+5)^2=16'
+            ];
+            
+            if (validEquations.includes(equationInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Perfecto! La ecuación es (x-3)²+(y+5)²=16';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ La ecuación debe ser (x-3)²+(y+5)²=16. Recuerda que y+5 significa y-(-5)';
+            }
+        }
+
+        function checkExercise5() {
+            const equationInput = document.getElementById('ex5Equation').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback5');
+            
+            const validEquations = [
+                '(x-7)²+(y+3)²=9',
+                '(x - 7)² + (y + 3)² = 9',
+                '(x-7)^2+(y+3)^2=9'
+            ];
+            
+            if (validEquations.includes(equationInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Excelente! Nueva ecuación: (x-7)²+(y+3)²=9';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ Centro original (3,2) + vector (4,-5) = (7,-3). Ecuación: (x-7)²+(y+3)²=9';
+            }
+        }
+
+        function checkExercise6() {
+            const vectorInput = document.getElementById('ex6Vector').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback6');
+            
+            const validVectors = ['(6, -6)', '(6,-6)'];
+            
+            if (validVectors.includes(vectorInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Correcto! Vector = (6, -6)';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ El vector es (7-1, -2-4) = (6, -6)';
+            }
+        }
+
+        function checkExercise7() {
+            const equationInput = document.getElementById('ex7Equation').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback7');
+            
+            const validEquations = [
+                '(x-6)²+(y-3)²=9',
+                '(x - 6)² + (y - 3)² = 9',
+                '(x-6)^2+(y-3)^2=9'
+            ];
+            
+            if (validEquations.includes(equationInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Excelente! El nuevo centro es (6,3) con radio 3';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ 4m este = +4, 2m sur = -2. Nuevo centro (6,3). Ecuación: (x-6)²+(y-3)²=9';
+            }
+        }
+
+        function checkExercise8() {
+            const centerInput = document.getElementById('ex8Center').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback8');
+            
+            const validCenters = ['(2, 8)', '(2,8)'];
+            
+            if (validCenters.includes(centerInput)) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ ¡Sobresaliente! Centro final (2,8)';
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '✗ Centro inicial (1,-3). Primer traslación: (4,1). Segundo: (2,5). Centro final (2,8)';
+            }
+        }
+
+        // Quiz
+        function selectOption(question, option, isCorrect) {
+            const questionDiv = document.querySelector(`[data-question="${question}"]`);
+            const options = questionDiv.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById(`feedback-quiz-${question}`);
+            
+            // Deshabilitar opciones
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+            
+            // Guardar respuesta
+            userAnswers.push({
+                question: question,
+                selected: option,
+                correct: isCorrect
+            });
+            
+            // Marcar selección
+            options.forEach(opt => {
+                if (opt.textContent.includes(`${option})`)) {
+                    if (isCorrect) {
+                        opt.classList.add('correct');
+                        quizScore++;
+                        feedback.className = 'feedback correct';
+                        feedback.innerHTML = '✓ ¡Correcto!';
+                    } else {
+                        opt.classList.add('incorrect');
+                        feedback.className = 'feedback incorrect';
+                        feedback.innerHTML = '✗ La respuesta correcta está marcada en verde';
+                        
+                        options.forEach(o => {
+                            if (o.onclick.toString().includes('true')) {
+                                o.classList.add('correct');
+                            }
+                        });
+                    }
+                }
+            });
+            
+            // Actualizar progreso
+            const progress = (question / totalQuestions) * 100;
+            document.getElementById('quizProgress').style.width = progress + '%';
+            document.getElementById('quizProgress').textContent = Math.round(progress) + '%';
+            
+            // Mostrar siguiente
+            setTimeout(() => {
+                if (question < totalQuestions) {
+                    questionDiv.style.display = 'none';
+                    document.querySelector(`[data-question="${question + 1}"]`).style.display = 'block';
+                } else {
+                    showQuizResults();
+                }
+            }, 1500);
+        }
+
+        function showQuizResults() {
+            document.getElementById('quizContainer').style.display = 'none';
+            const resultsDiv = document.getElementById('quizResults');
+            resultsDiv.style.display = 'block';
+            
+            const percentage = (quizScore / totalQuestions) * 100;
+            const scoreDiv = document.getElementById('quizScore');
+            const messageDiv = document.getElementById('quizMessage');
+            
+            scoreDiv.textContent = `${quizScore}/${totalQuestions} (${percentage}%)`;
+            
+            if (percentage === 100) {
+                messageDiv.textContent = '🏆 ¡Excelente! Dominas perfectamente el tema';
+                scoreDiv.style.color = '#00B894';
+            } else if (percentage >= 80) {
+                messageDiv.textContent = '👏 ¡Muy bien! Tienes un buen dominio';
+                scoreDiv.style.color = '#6C5CE7';
+            } else if (percentage >= 60) {
+                messageDiv.textContent = '📚 Buen intento, pero necesitas repasar';
+                scoreDiv.style.color = '#FDCB6E';
+            } else {
+                messageDiv.textContent = '💪 Sigue practicando, ¡tú puedes mejorar!';
+                scoreDiv.style.color = '#D63031';
+            }
+        }
+
+        function resetQuiz() {
+            quizScore = 0;
+            currentQuestion = 1;
+            userAnswers = [];
+            
+            document.getElementById('quizProgress').style.width = '0%';
+            document.getElementById('quizProgress').textContent = '0%';
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('quizResults').style.display = 'none';
+            
+            document.querySelectorAll('.quiz-question').forEach((q, index) => {
+                q.style.display = index === 0 ? 'block' : 'none';
+            });
+            
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect', 'selected');
+                opt.style.pointerEvents = 'auto';
+            });
+            
+            document.querySelectorAll('.feedback').forEach(f => {
+                f.className = 'feedback';
+                f.innerHTML = '';
+            });
+        }
+
+        function reviewMistakes() {
+            alert('Función en desarrollo: Pronto podrás revisar tus errores');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
